@@ -18,7 +18,6 @@ A full-stack note-taking application built with the **MERN** stack (MongoDB, Exp
   - [Running the App](#running-the-app)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -36,9 +35,10 @@ A full-stack note-taking application built with the **MERN** stack (MongoDB, Exp
 
 | Layer     | Technology                        |
 |-----------|-----------------------------------|
-| Frontend  | React, Vite, JavaScript, Tailwind |
+| Frontend  | React 19, Vite, Tailwind          |
 | Backend   | Node.js, Express.js               |
 | Database  | MongoDB (via Mongoose)            |
+| Rate      | Upstash Redis                     |
 | Deployment| Vercel                            |
 
 ---
@@ -67,7 +67,7 @@ MERN.NoteTakingApps/
 Make sure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (v18 or higher)
-- [npm](https://www.npmjs.com/) (v9 or higher)
+- [Upstash](https://upstash.com/) Redis database
 - [MongoDB](https://www.mongodb.com/) (local instance or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
 
 ### Installation
@@ -104,6 +104,9 @@ Create a `.env` file inside the `backend/` directory and add the following:
 ```env
 PORT=5001
 MONGO_URI=your_mongodb_connection_string
+
+UPSTASH_REDIS_REST_URL=your_upstash_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_token
 ```
 
 > ⚠️ Never commit your `.env` file. It is already listed in `.gitignore`.
@@ -133,12 +136,6 @@ The frontend will be available at `http://localhost:5173` and the backend at `ht
 
 This project is configured for deployment on **Vercel** using `vercel.json`. The frontend (Vite) is served at `/` and the backend (Express) is routed under `/_/backend`.
 
-To deploy your own instance:
-
-1. Install the [Vercel CLI](https://vercel.com/docs/cli): `npm i -g vercel`
-2. Run `vercel` from the project root and follow the prompts.
-3. Add your environment variables in the Vercel project dashboard under **Settings → Environment Variables**.
-
 ---
 
 ## 🤝 Contributing
@@ -150,12 +147,6 @@ Contributions are welcome! To get started:
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin feature/your-feature-name`
 5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the [ISC License](https://opensource.org/licenses/ISC).
 
 ---
 
